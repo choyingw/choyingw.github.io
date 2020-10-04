@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Geometry-Aware Instance Segmentation with Disparity Maps</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/main.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>Geometry-Aware Instance Segmentation with Disparity Maps</h1>
+
+        <hr>
+
+        <p>Authors: Cho-Ying Wu*  Xiaoyuan Hu^,  Michael Happold^, Qiangeng Xu*, Ulrich Neumann*</p>
+
+        <p> *University of Southern California &nbsp;&nbsp; ^Argo AI</p>
+
+        <p>Here describes our work <a href="https://sites.google.com/view/cvpr20-scalability/posters">Geometry-Aware Instance Segmentation with Disparity Maps*</a> on CVPR 2020 Workshop of Scability in Autonomous Driving (<a href="https://sites.google.com/view/cvpr20-scalability/home">WSAD</a>). This work introduces a sensor fusion framework GAIS-Net which incorporates geometric information of disparity maps and images to perform outdoor instance segmentation on driving scenarios. To our knowledge, this is the first work to perform outdoor instance segementation combining information of both images and geometry. Our results attain state of the art compared with Mask-RCNN, Cascade Mask-RCNN, Hybird Task Cascade (HTC). We also collect a high-quality driving stereo (HQDS) dataset that enables highely accurate long range outdoor depth acquistion.</p>
+
+        <p><small>*This work is done during Cho-Ying Wu's internship at <a href="www.argo.ai
+"> Argo AI</a>.</small></p>
+
+        <h2>Abstract</h2>
+        <p>Most previous works of outdoor instance segmentation for images only use color information. We explore a novel direction of sensor fusion to exploit stereo cameras. Geometric information from disparities helps separate overlapping objects of the same or different classes. Moreover, geometric information penalizes region proposals with unlikely 3D shapes thus suppressing false positive detections. Mask regression is based on 2D, 2.5D, and 3D ROI using the pseudo-lidar and image-based representations. These mask predictions are fused by a mask scoring process. However, public datasets only adopt stereo systems with shorter baseline and focal legnth, which limit measuring ranges of stereo cameras. We collect and utilize High-Quality Driving Stereo (HQDS) dataset, using much longer baseline and focal length with higher resolution. Our performance attains state of the art. The full paper is available <a href="https://drive.google.com/open?id=1ClWVotE94DfrjedJhZfDVHvp6WQ4aeMD">here</a>.</p>
+
+        <h2>Citation</h2>
+        
+        <p>If you find this work useful in your research, please consider citing:</p>
+        
+        <pre><code>@inproceedings{wu2020Cvprw,
+title={Geometry-Aware Instance Segmentation with Disparity Maps},
+author={Wu, Cho-Ying and Hu, Xiaoyan and Happold, Michael and Xu, Qiangeng and Neumann, Ulrich},
+booktitle={CVPR Workshop on Scability in Autonomous Driving},
+year={2020}
+}</code></pre>
+        
+        <ul>
+            <li><a href="./WSAD/CVPRW_CameraReady.pdf">Paper</a></li>
+            <li><a href="./WSAD/17-slides.pdf">Slides</a></li>
+            <li><a href="./WSAD/17-poster.mp4">Presentation</a></li>
+        </ul>
+
+        <h2>Overview</h2>
+        
+        <p> Training Process </p>
+        <p><img class="img-thumbnail img-responsive" src="./WSAD/figure/3D2D_v11.png" alt="Training">
+        <em>Pipeline of our GAIS-Net. Disparity maps are calculated using PSMNet from the left/right stereo frames. Based on Mask-RCNN, we introduce the disparity information at ROI heads. The representation aggregation approach of collecting regressed masks on 2D, 2.5D, and pseudo-3D is dones by each MaskHead. MaskIoU includes a mask scoring process to score the quality of each mask.</em></p>
+
+        <p> Testing </p>
+        <p><img class="img-thumbnail img-responsive" src="./WSAD/figure/InferenceTimev7.png" alt="Testing">
+        <em>We fuse the 2.5D mask and 3D mask first because they are from the same source. We then fuse the mask predictions from the image domain and disparity. Masks are linearly combined using their associated mask scores. Therefore, a mask with higher score, having a better mask shape, contributes to the final mask more.</em></p>
+
+        <h2>Results</h2>
+        <p><img class="img-thumbnail img-responsive" src="./WSAD/figure/teaser_v4.png" alt="Results">
+        <em>Left column shows stereo left images with histogram equalization to enhance contrast for better visualization. Middle and last column show Mask-RCNN and GAIS-Net results, respectively. Each instance has different colors. With the aid of geometric information, GAIS-Net can segment out the person from the overlapping area in the first row example. In the second row scenario, Mask-RCNN generates distorted mask for the smoking motorcyclist because of cigarette plume and in contrast GAIS-Net displays a more robust shape control capability.</em></p>
+
+        <p><center><img class="img-thumbnail img-responsive" src="./WSAD/figure/num_1.png" alt="num_1"></center></p>
+        <p><em>Performance on HQDS. We compare our GAIS-Net with Mask-RCNN with different backbone.</em></p>
+
+        <p><center><img class="img-thumbnail img-responsive" src="./WSAD/figure/num_2.png" alt="num_2"></center></p>
+        <p><em>Comparsion with related works on HQDS.</em></p>
+
+        <p><center><img class="img-thumbnail img-responsive" src="./WSAD/figure/all.png" alt="all"></center></p>
+        
+        <h2>Codes and Data</h2>
+        
+        <p>Will provide more information soon.</p>
+        
+    </div>
+</body>
+</html>
