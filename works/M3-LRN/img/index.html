@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>SCADC</title>
+    <title>M3-LRN</title>
 
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,14 +14,14 @@
     <!-- <base href="/"> -->
 
         <!--FACEBOOK-->
-    <meta property="og:image" content="https://choyingw.github.io/works/SCADC/img/teaser.png">
+    <meta property="og:image" content="https://choyingw.github.io/works/M3-LRN/img/teaser.png">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="682">
     <meta property="og:image:height" content="682">
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://choyingw.github.io/works/SCADC/index.html"/>
-    <meta property="og:title" content="SCADC" />
-    <meta property="og:description" content="Project page for SCADC: Scene Completeness-Aware Lidar Depth Completion for Driving Scenario." />
+    <meta property="og:url" content="https://choyingw.github.io/works/M3-LRN/index.html"/>
+    <meta property="og:title" content="M3-LRN" />
+    <meta property="og:description" content="Project page for Accurate 3D Facial Geometry Prediction by Multi-Task, Multi-Modal, and Multi-Representation Landmark Refinement Network" />
 
 
 
@@ -48,9 +48,9 @@
     <div class="container" id="main">
         <div class="row">
             <h2 class="col-md-12 text-center">
-                Scene Completeness-Aware Lidar Depth Completion for Driving Scenario</br> 
+                Accurate 3D Facial Geometry Prediction by Multi-Task, Multi-Modal, and Multi-Representation Landmark Refinement Network</br> 
                 <small>
-                    ICASSP 2021
+                    Arxiv 2021
                 </small>
             </h2>
         </div>
@@ -60,6 +60,12 @@
                     <li>
                         <a href="https://choyingw.github.io/">
                           Cho-Ying Wu
+                        </a>
+                        </br>USC, CGIT Lab
+                    </li>
+                    <li>
+                        <a href="https://cgit.usc.edu/">
+                            Qiangeng Xu
                         </a>
                         </br>USC, CGIT Lab
                     </li>
@@ -83,16 +89,16 @@
                                 <h4><strong>Paper</strong></h4>
                             </a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href="https://www.youtube.com/watch?v=FQDTdpMPKxs">
                             <image src="img/youtube_icon.png" height="60px">
                                 <h4><strong>Video</strong></h4>
                             </a>
-                        </li>
+                        </li> -->
                         <li>
-                            <a href="https://github.com/choyingw/SCADC-DepthCompletion">
+                            <a href="https://github.com/choyingw/M3-LRN">
                             <image src="img/github_pad.png" height="60px">
-                                <h4><strong>Code</strong></h4>
+                                <h4><strong>Code [Ready soon]</strong></h4>
                             </a>
                         </li>
                     </ul>
@@ -108,14 +114,14 @@
                 </h3>
                 <image src="img/teaser.png" class="img-responsive" alt="overview"><br>
                 <p class="text-justify">
-This paper introduces Scene Completeness-Aware Depth Completion (SCADC) to complete raw lidar scans into dense depth maps with fine and complete scene structures. Recent sparse depth completion for lidars only focuses on the lower scenes and produces irregular estimations on the upper because existing datasets, such as KITTI, do not provide groundtruth for upper areas. These areas are considered less important since they are usually sky or trees of less scene understanding interest. However, we argue that in several driving scenarios such as large trucks or cars with loads, objects could extend to the upper parts of scenes. Thus depth maps with structured upper scene estimation are important for RGBD algorithms. SCADC adopts stereo images that produce disparities with better scene completeness but are generally less precise than lidars, to help sparse lidar depth completion. To our knowledge, we are the first to focus on scene completeness of sparse depth completion. We validate our SCADC on both depth estimate precision and scene-completeness on KITTI. Moreover, we experiment on less-explored outdoor RGBD semantic segmentation with scene completeness-aware D-input to validate our method.
+This work focuses on complete 3D facial geometry prediction, including 3D facial alignment via 3D face modeling and face orientation estimation using the proposed multi-task, multi-modal, and multi-representation landmark refinement network (M$^3$-LRN). Our focus is on the important facial attributes, 3D landmarks, and we fully utilize their embedded information to guide 3D facial geometry learning. We first propose a multi-modal and multi-representation feature aggregation for landmark refinement. Next, we are the first to study 3DMM regression from sparse 3D landmarks and utilize multi-representation advantage to attain better geometry prediction. We attain the state of the art from extensive experiments on all tasks of learning 3D facial geometry. We closely validate contributions of each modality and representation. Our results are robust across cropped faces, underwater scenarios, and extreme poses. Specially we adopt only simple and widely used network operations in M$^3$-LRN and attain a near 20\% improvement on face orientation estimation over the current best performance. Codes and data will be released.
                 </p>
             </div>
         </div>
 
 
 
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h3>
                     Video
@@ -126,7 +132,7 @@ This paper introduces Scene Completeness-Aware Depth Completion (SCADC) to compl
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
 
         <div class="row">
@@ -138,22 +144,29 @@ This paper introduces Scene Completeness-Aware Depth Completion (SCADC) to compl
                     The framework is shown as follows. 
                 </p>
                 <p style="text-align:center;">
-                    <image src="img/Sturcture.png" height="50px" class="img-responsive">
+                    <image src="img/pipeline.png" height="50px" class="img-responsive">
                 </p>
                 <p class="text-justify">
-                    Our motivation is to obtain more structured upper scene measurements for depth completion-based method without the guidance of upper scene groundtruth. Meanwhile, we obtain more accurate lower scene depth from the semi-dense depth groundtruth data. 
-
-                    SCADC exploits raw depth from both the depth completion-based block and the other stereo matching branch. Attentional Point Confidence (APC) module learns the attention score for the lidar. To perform probabilistic fusion, only measuring the weight for one modality is sufficient. We then combine the two raw maps from the two branches. Last, we use a stacked hourglass network ro regress depth values. 
+                    Backbone network learns to regress 3DMM parameters (alpha_p, alpha_s, and \alpha_e) and reconstruct 3D face meshes from monocular face images. M2 Feature Aggregation (M2FA) gathers underlying 3DMM semantics to further refine landmarks. The landmark-to-3DMM module regresses 3DMM from refined landmarks Lr to learn embedded geometric information in 3D landmarks. A self-supervision consistency is applied to 3DMM regressed from different information sources. The red and blue arrows after shape and expression (expr) decoders show the main areas of deformation that each 3DMM semantics controls.
                 </p>
-                <p style="text-align:center;">
-                    <image src="img/APC_SACONV.png" height="30px" class="img-responsive">
-                </p>
-                <p class="text-justify">
-                    Structure of APC and SAConv we used in this work. APC learns confidence score from SAConv, under the guidance of a pre-computed confidence map. SAConv is a sparse convolution method to perform efficent convolution over sparse input.
-                </p>
+                
             </div>
         </div>
             
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Advantage
+                </h3>
+                <p class="text-justify">
+                    + State-of-the-art on all 3D facial alignment, face orientation estimation, and 3D face modeling.
+                    + Exploitation of Multi-Modal and Multi-Representation for information aggregation.
+                    + Fast and easy to use: 3000fps for 3D facial landmarks on a RTX2080 GPU.
+                    + The first to study the face reconstrcutability from sparse landmarks.
+                </p>
+                
+            </div>
+        </div>
             
 
         <div class="row">
@@ -162,26 +175,31 @@ This paper introduces Scene Completeness-Aware Depth Completion (SCADC) to compl
                     Results
                 </h3>
                 <p style="text-align:center;">
-                    <image src="img/all.png" class="img-responsive" alt="scales">
+                    <image src="img/AF-1.png" class="img-responsive" alt="scales">
                 </p>
-                <p class="text-justify">
-                    <b>(Left)</b> Qualitative results of stereo matching (PSMNet), SSDC (direct lidar completion), and our SCADC on KITTI Depth Completion validation set. We show driving scenarios of large trucks beside and cars with loads. Vehicle structures extend to upper scenes. SSDC fails to regress upper structures. Shape distortion of PSMNet could be seen in highlights (a) Bicycle contour. (b) Bridge structure bleeds into the background and creates irregular estimations. 
-
-                    <b>(Right)</b> Comparison on KITTI Depth Completion test set.} Results of other works are directly from KITTI official site. Other depth completion based method only obtain messy and unstructured upper scenes. 
-                </p>                
-                <br>
-                <br><br>
-                <p class="text-justify">
-                    We last show the applicability of the more structured upper scene resutls. We perform semantic segmention for KITTI and get consistent label maps.                </p>
                 <p style="text-align:center;">
-                    <image src="img/semantic.png" class="img-responsive" alt="scales">
+                    <image src="img/AF-2.png" class="img-responsive" alt="scales">
                 </p>
+                
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Acknowledgement
+                </h3>
+                <p class="text-justify">
+                    We thank Jingjing Zheng, Jim Thomas, and Cheng-Hao Kuo for their concrete comments and advice on this work.
+                </p>
+                
             </div>
         </div>
 
         
             
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h3>
                     Citation
@@ -197,10 +215,10 @@ This paper introduces Scene Completeness-Aware Depth Completion (SCADC) to compl
 }</textarea>
                 </div>
             </div>
-        </div>
+        </div> -->
 
 
     </div>
-    -->
+    
 </body>
 </html>
