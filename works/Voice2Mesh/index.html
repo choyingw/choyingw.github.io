@@ -1,0 +1,228 @@
+
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Voice2Mesh</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <base href="/"> -->
+
+        <!--FACEBOOK-->
+    <meta property="og:image" content="https://choyingw.github.io/works/Voice2Mesh/img/teaser.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="682">
+    <meta property="og:image:height" content="682">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://choyingw.github.io/works/Voice2Mesh/index.html"/>
+    <meta property="og:title" content="Voice2Mesh" />
+    <meta property="og:description" content="Project page for Voice2Mesh: Cross-Modal 3D Face Model Generation from Voices" />
+
+
+
+<!--     <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
+  <!-- <link rel="icon" type="image/png" href="img/seal_icon.png"> -->
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
+    <link rel="stylesheet" href="css/app.css">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
+    
+    <script src="js/app.js"></script>
+</head>
+
+<body>
+    <div class="container" id="main">
+        <div class="row">
+            <h2 class="col-md-12 text-center">
+                Voice2Mesh: Cross-Modal 3D Face Model Generation from Voices</br> 
+                <small>
+                    Arxiv 2021
+                </small>
+            </h2>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="list-inline">
+                    <li>
+                        <a href="https://choyingw.github.io/">
+                          Cho-Ying Wu
+                        </a>
+                        </br>USC, CGIT Lab
+                    </li>
+                    <li>
+                        <a href="https://www.richardkxu.com/">
+                            Ke Xu
+                        </a>
+                        </br>USC, CGIT Lab
+                    </li>
+                    <li>
+                        <a href="https://scholar.google.com/citations?user=5i7k1RoAAAAJ">
+                            Chin-Cheng Hsu
+                        </a>
+                        </br>USC
+                    </li>
+                    <li>
+                        <a href="https://cgit.usc.edu/">
+                            Ulrich Neumann
+                        </a>
+                        </br>USC, CGIT Lab
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="row">
+                <div class="col-md-4 col-md-offset-4 text-center">
+                    <ul class="nav nav-pills nav-justified">
+                        <li>
+                            <a href="https://arxiv.org/abs/2003.06945">
+                            <image src="img/paper_image.jpg" height="60px">
+                                <h4><strong>Paper</strong></h4>
+                            </a>
+                        </li>
+                        <!-- <li>
+                            <a href="https://www.youtube.com/watch?v=FQDTdpMPKxs">
+                            <image src="img/youtube_icon.png" height="60px">
+                                <h4><strong>Video</strong></h4>
+                            </a>
+                        </li> -->
+                        <li>
+                            <a href="https://github.com/choyingw/Voice2Mesh">
+                            <image src="img/github_pad.png" height="60px">
+                                <h4><strong>Code</strong></h4>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Abstract
+                </h3>
+                <image src="img/overall_purpose.png" class="img-responsive" alt="overview"><br>
+                <p class="text-justify">
+This work focuses on the analysis that whether 3D face models can be learned from only the speech inputs of speakers. Previous works for cross-modal face synthesis study image generation from voices. However, image synthesis includes variations such as hairstyles, backgrounds, and facial textures, that are arguably irrelevant to voice or without direct studies to show correlations. We instead investigate the ability to reconstruct 3D faces to concentrate on only geometry, which is more physiologically grounded. We propose both the supervised learning and unsupervised learning frameworks. Especially we demonstrate how unsupervised learning is possible in the absence of a direct voice-to-3D-face dataset under limited availability of 3D face scans when the model is equipped with knowledge distillation. To evaluate the performance, we also propose several metrics to measure the geometric fitness of two 3D faces based on points, lines, and regions. We find that 3D face shapes can be reconstructed from voices. Experimental results suggest that 3D faces can be reconstructed from voices, and our method can improve the performance over the baseline. The best performance gains (15% - 20%) on ear-to-ear  distance ratio metric (ER) coincides with the intuition that one can roughly envision whether a speaker face is in overall wider or thinner only from a person's voice. Code and data will be released publicly.
+                </p>
+            </div>
+        </div>
+
+
+
+        <!-- <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Video
+                </h3>
+                <div class="text-center">
+                    <div style="position:relative;padding-top:56.25%;">
+                        <iframe src="https://www.youtube.com/embed/FQDTdpMPKxs" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Method
+                </h3>
+                <p class="text-justify">
+                    The unsupervised framework is shown as follows. This setting serves an ideal case that when paired voice and 3D face data exist.
+                </p>
+                <p style="text-align:center;">
+                    <image src="img/supervised.png" height="50px" class="img-responsive">
+                </p>
+                <p class="text-justify">
+                    The supervised framework directly learns the 3D face reconstruction pipeline from paired voices and 3D faces. 
+                </p>
+                <p class="text-justify">
+                    The unsupervised framework is shown as follows. This setting serves a more realistic purpose that it's very hard to obtain large-scale paired voice and 3D face data.
+                </p>
+                <p style="text-align:center;">
+                    <image src="img/unsupervised.png" height="50px" class="img-responsive">
+                </p>
+                <p class="text-justify">
+                    The unsupervised framework utilizes the knowledge distillation (KD) to distill knacks from an image-to-3D-face expert to facilitate the unsupervised end-to-end training.   
+                </p>
+
+            </div>
+        </div>
+            
+            
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Results
+                </h3>
+                <p style="text-align:center;">
+                    <image src="img/supervised_gt.png" class="img-responsive" alt="scales">
+                </p>
+                <p style="text-align:center;">
+                    <image src="img/supervised_comp.png" class="img-responsive" alt="scales">
+                </p>
+                <p style="text-align:center;">
+                    <image src="img/supervised_coherence.png" class="img-responsive" alt="scales">
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Broader Impact
+                </h3>
+                <p style="text-align:center;">
+                    This work serves a pure academic research purpose for cross-modal learning. We aim to recover the potential statistical correlation between voices and 3D faces based on the physiological and psychological supportive evidence. As is always the case that machine learning and deep learning methods produce inferrence bias and variations, when there comes an uncommon voice and 3D facial geometry correpondence, or the speaker does not use one's natural voice, our model would not perform as good as more representative and typical cases. The same concern is also raised by <a href="https://speech2face.github.io/"> prior work</a> of 2D representation for this line of research.
+
+                    As mentioned in the statement of their ethical considerations, hairstyle and color variations are their concerns; in constrast, our 3D approach leaves out these issues and only focus on the 3D facial geometry analysis. This better studies the statistical correlations between voices and 3D face shapes. From this perspective, our work is a concrete improvement to contain less ethical concerns of inference variations for this line of research.
+
+                </p>
+            </div>
+        </div>
+
+        
+            
+        <!-- <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Citation
+                </h3>
+                <div class="form-group col-md-10 col-md-offset-1">
+                    <textarea id="bibtex" class="form-control" readonly>
+@article{wu2020scene,
+  title={Scene Completenesss-Aware Lidar Depth Completion for Driving Scenario},
+  author={Wu, Cho-Ying and Neumann, Ulrich},
+  journal={arXiv preprint arXiv:2003.06945},
+  year={2020}
+}
+}</textarea>
+                </div>
+            </div>
+        </div> -->
+
+
+    </div>
+    
+</body>
+</html>
