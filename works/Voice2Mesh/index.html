@@ -91,7 +91,7 @@
                     <ul class="nav nav-pills nav-justified">
                         <li>
                             <a href="https://arxiv.org/abs/2003.06945">
-                            <image src="img/paper_image.jpg" height="60px">
+                            <image src="img/paper_image.png" height="60px">
                                 <h4><strong>Paper</strong></h4>
                             </a>
                         </li>
@@ -147,22 +147,16 @@ This work focuses on the analysis that whether 3D face models can be learned fro
                     Method
                 </h3>
                 <p class="text-justify">
-                    The unsupervised framework is shown as follows. This setting serves an ideal case that when paired voice and 3D face data exist.
+                    The unsupervised framework is shown as follows. This setting serves an ideal case that when paired voice and 3D face data exist. The supervised framework directly learns the 3D face reconstruction pipeline from paired voices and 3D faces.
                 </p>
                 <p style="text-align:center;">
                     <image src="img/supervised.png" height="50px" class="img-responsive">
                 </p>
                 <p class="text-justify">
-                    The supervised framework directly learns the 3D face reconstruction pipeline from paired voices and 3D faces. 
-                </p>
-                <p class="text-justify">
-                    The unsupervised framework is shown as follows. This setting serves a more realistic purpose that it's very hard to obtain large-scale paired voice and 3D face data.
+                    The unsupervised framework is shown as follows. This setting serves a more realistic purpose that it's very hard to obtain large-scale paired voice and 3D face data. The unsupervised framework utilizes the knowledge distillation (KD) to distill knacks from an image-to-3D-face expert to facilitate the unsupervised end-to-end training.  
                 </p>
                 <p style="text-align:center;">
                     <image src="img/unsupervised.png" height="50px" class="img-responsive">
-                </p>
-                <p class="text-justify">
-                    The unsupervised framework utilizes the knowledge distillation (KD) to distill knacks from an image-to-3D-face expert to facilitate the unsupervised end-to-end training.   
                 </p>
 
             </div>
@@ -173,30 +167,38 @@ This work focuses on the analysis that whether 3D face models can be learned fro
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h3>
-                    Results
+                    Result 1: different shape face mesh inferred from voices. The upper images are for reference. 
                 </h3>
                 <p style="text-align:center;">
                     <image src="img/supervised_gt.png" class="img-responsive" alt="scales">
                 </p>
+                <h3>
+                    Result 2: comparison of generation 3D face mesh with the baseline. 
+                </h3>
                 <p style="text-align:center;">
                     <image src="img/supervised_comp.png" class="img-responsive" alt="scales">
                 </p>
+                <h3>
+                    Result 3: generation consistency for the same identity using different utterances.  
+                </h3>
                 <p style="text-align:center;">
                     <image src="img/supervised_coherence.png" class="img-responsive" alt="scales">
                 </p>
             </div>
         </div>
 
+
+        <br><br><br>
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h3>
                     Broader Impact
                 </h3>
-                <p style="text-align:center;">
+                <p style="text-align:left;">
                     This work serves a pure academic research purpose for cross-modal learning. We aim to recover the potential statistical correlation between voices and 3D faces based on the physiological and psychological supportive evidence. As is always the case that machine learning and deep learning methods produce inferrence bias and variations, when there comes an uncommon voice and 3D facial geometry correpondence, or the speaker does not use one's natural voice, our model would not perform as good as more representative and typical cases. The same concern is also raised by <a href="https://speech2face.github.io/"> prior work</a> of 2D representation for this line of research.
-
+                </p>
+                <p style="text-align:left;">
                     As mentioned in the statement of their ethical considerations, hairstyle and color variations are their concerns; in constrast, our 3D approach leaves out these issues and only focus on the 3D facial geometry analysis. This better studies the statistical correlations between voices and 3D face shapes. From this perspective, our work is a concrete improvement to contain less ethical concerns of inference variations for this line of research.
-
                 </p>
             </div>
         </div>
