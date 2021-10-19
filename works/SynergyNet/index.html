@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>M3-LRN</title>
+    <title>SynergyNet</title>
 
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,13 +14,13 @@
     <!-- <base href="/"> -->
 
         <!--FACEBOOK-->
-    <meta property="og:image" content="https://choyingw.github.io/works/M3-LRN/img/teaser.png">
+    <meta property="og:image" content="https://choyingw.github.io/works/SynergyNet/img/teaser.png">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="682">
     <meta property="og:image:height" content="682">
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://choyingw.github.io/works/M3-LRN/index.html"/>
-    <meta property="og:title" content="M3-LRN" />
+    <meta property="og:url" content="https://choyingw.github.io/works/SynergyNet/index.html"/>
+    <meta property="og:title" content="SynergyNet" />
     <meta property="og:description" content="Project page for Accurate 3D Facial Geometry Prediction by Multi-Task, Multi-Modal, and Multi-Representation Landmark Refinement Network" />
 
 
@@ -48,9 +48,9 @@
     <div class="container" id="main">
         <div class="row">
             <h2 class="col-md-12 text-center">
-                Accurate 3D Facial Geometry Prediction by Multi-Task, Multi-Modal, and Multi-Representation Landmark Refinement Network</br> 
+                Synergy between 3DMM and 3D Landmarks for Accurate 3D Facial Geometry</br> 
                 <small>
-                    Arxiv 2021
+                    3DV 2021
                 </small>
             </h2>
         </div>
@@ -96,7 +96,7 @@
                             </a>
                         </li> -->
                         <li>
-                            <a href="https://github.com/choyingw/M3-LRN">
+                            <a href="https://github.com/choyingw/SynergyNet">
                             <image src="img/github_pad.png" height="100px">
                                 <h4><strong>Code</strong></h4>
                             </a>
@@ -114,25 +114,10 @@
                 </h3>
                 <image src="img/teaser.png" class="img-responsive" alt="overview"><br>
                 <p class="text-justify">
-This work focuses on complete 3D facial geometry prediction, including 3D facial alignment via 3D face modeling and face orientation estimation using the proposed multi-task, multi-modal, and multi-representation landmark refinement network (M3-LRN). Our focus is on the important facial attributes, 3D landmarks, and we fully utilize their embedded information to guide 3D facial geometry learning. We first propose a multi-modal and multi-representation feature aggregation for landmark refinement. Next, we are the first to study 3DMM regression from sparse 3D landmarks and utilize multi-representation advantage to attain better geometry prediction. We attain the state of the art from extensive experiments on all tasks of learning 3D facial geometry. We closely validate contributions of each modality and representation. Our results are robust across cropped faces, underwater scenarios, and extreme poses. Specially we adopt only simple and widely used network operations in M3-LRN and attain a near 20% improvement on face orientation estimation over the current best performance. Codes and data will be released.
+                    This work studies learning from a synergy process of 3D Morphable Models (3DMM) and 3D facial landmarks to predict complete 3D facial geometry, including 3D alignment, face orientation, and 3D face modeling. Our synergy process leverages a representation cycle for 3DMM parameters and 3D landmarks. 3D landmarks can be extracted and refined from face meshes built by 3DMM parameters. We next reverse the representation direction and show that predicting 3DMM parameters from sparse 3D landmarks improves the information flow. Together we create a synergy process that utilizes the relation between 3D landmarks and 3DMM parameters, and they collaboratively contribute to better performance. We extensively validate our contribution on full tasks of facial geometry prediction and show our superior and robust performance on these tasks for various scenarios. Particularly, we adopt only simple and widely-used network operations to attain fast and accurate facial geometry prediction.
                 </p>
             </div>
         </div>
-
-
-
-        <!-- <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    Video
-                </h3>
-                <div class="text-center">
-                    <div style="position:relative;padding-top:56.25%;">
-                        <iframe src="https://www.youtube.com/embed/FQDTdpMPKxs" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
-                    </div>
-                </div>
-            </div>
-        </div> -->
 
 
         <div class="row">
@@ -147,7 +132,7 @@ This work focuses on complete 3D facial geometry prediction, including 3D facial
                     <image src="img/pipeline.png" height="50px" class="img-responsive">
                 </p>
                 <p class="text-justify">
-                    Backbone network learns to regress 3DMM parameters (alpha_p, alpha_s, and \alpha_e) and reconstruct 3D face meshes from monocular face images. M2 Feature Aggregation (M2FA) gathers underlying 3DMM semantics to further refine landmarks. The landmark-to-3DMM module regresses 3DMM from refined landmarks Lr to learn embedded geometric information in 3D landmarks. A self-supervision consistency is applied to 3DMM regressed from different information sources. The red and blue arrows after shape and expression (expr) decoders show the main areas of deformation that each 3DMM semantics controls.
+                    
                 </p>
                 
             </div>
@@ -158,12 +143,11 @@ This work focuses on complete 3D facial geometry prediction, including 3D facial
                 <h3>
                     Advantage
                 </h3>
-                <p class="text-justify", style="font-size:130%;">
+                <p class="text-justify", style="font-size:130%;font-family:sans-serif;color:Chocolate">
                     <br>
-                    <b>+ State-of-the-art on all 3D facial alignment, face orientation estimation, and 3D face modeling.</b><br><br>
-                    <b>+ Exploitation of Multi-Modal and Multi-Representation for information aggregation.</b><br><br>
-                    <b>+ Fast and easy to use: 3000fps for 3D facial landmarks on a single GPU.</b><br><br>
-                    <b>+ The first to study the face reconstrcutability from sparse landmarks.</b><br><br>
+                    &diams; SOTA on all 3D facial alignment, face orientation estimation, and 3D face modeling.<br><br>
+                    &diams; Fast inference with 3000fps on a RTX 2080 Ti.<br><br>
+                    &diams; Simple implementation with only widely used operations.<br><br>
                 </p>
                 
             </div>
@@ -239,27 +223,6 @@ This work focuses on complete 3D facial geometry prediction, including 3D facial
             The website template was borrowed from <a href="http://mgharbi.com/">Michaël Gharbi</a> 
             </div>
         </div>
-
-
-        
-            
-        <!-- <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    Citation
-                </h3>
-                <div class="form-group col-md-10 col-md-offset-1">
-                    <textarea id="bibtex" class="form-control" readonly>
-@article{wu2020scene,
-  title={Scene Completenesss-Aware Lidar Depth Completion for Driving Scenario},
-  author={Wu, Cho-Ying and Neumann, Ulrich},
-  journal={arXiv preprint arXiv:2003.06945},
-  year={2020}
-}
-}</textarea>
-                </div>
-            </div>
-        </div> -->
 
 
     </div>
