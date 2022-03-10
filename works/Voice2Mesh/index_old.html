@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>Cross-Modal Perceptionist</title>
+    <title>Voice2Mesh</title>
 
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -89,10 +89,16 @@
                                 <h4><strong>Paper</strong></h4>
                             </a>
                         </li>
+                        <!-- <li>
+                            <a href="https://www.youtube.com/watch?v=FQDTdpMPKxs">
+                            <image src="img/youtube_icon.png" height="60px">
+                                <h4><strong>Video</strong></h4>
+                            </a>
+                        </li> -->
                         <li>
                             <a href="https://github.com/choyingw/Voice2Mesh">
                             <image src="img/github_pad.png" height="60px">
-                                <h4><strong>Code and Data</strong></h4>
+                                <h4><strong>Code</strong></h4>
                             </a>
                         </li>
                     </ul>
@@ -112,6 +118,22 @@
                 </p>
             </div>
         </div>
+
+
+
+        <!-- <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Video
+                </h3>
+                <div class="text-center">
+                    <div style="position:relative;padding-top:56.25%;">
+                        <iframe src="https://www.youtube.com/embed/FQDTdpMPKxs" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
 
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
@@ -134,33 +156,37 @@
                 <p style="text-align:center;">
                     <image src="img/unsupervised.png" height="50px" class="img-responsive">
                 </p>
+
             </div>
         </div>
             
+            
+
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h3>
-                    Result 1: different shape face meshes inferred from voices. The upper images are for reference. 
+                    Result 1: different shape face mesh inferred from voices. The upper images are for reference. 
                 </h3>
                 <p style="text-align:center;">
                     <image src="img/supervised_gt.png" class="img-responsive" alt="scales">
                 </p>
                 <br><br>
                 <h3>
-                    Result 2: comparison of recovered 3D face meshes with the baseline. 
+                    Result 2: comparison of generation 3D face mesh with the baseline. 
                 </h3>
                 <p style="text-align:center;">
                     <image src="img/supervised_comp.png" class="img-responsive" alt="scales">
                 </p>
                 <br><br>
                 <h3>
-                    Result 3: consistency for the same identity using different utterances.  
+                    Result 3: generation consistency for the same identity using different utterances.  
                 </h3>
                 <p style="text-align:center;">
-                    <image src="img/coherence.png" class="img-responsive" alt="scales">
+                    <image src="img/supervised_coherence.png" class="img-responsive" alt="scales">
                 </p>
             </div>
-        </div>    
+        </div>
+
 
         <br><br><br>
         <div class="row">
@@ -169,10 +195,10 @@
                     Broader Impact
                 </h3>
                 <p style="text-align:left;">
-                    Cross-modal learning is a focus of the machine learning and AI community. This work goes beyond previous 2D face image synthesis that may include irrelevant or controversial variations, such as hairstyles, backgrounds, and skin colors. We provide analyses focusing on the correlations between voices and face shapes. Our work suggests such correlations exist, and we contribute more tangible and explainable grounds of cross-modal learning to the community of interest.
+                    This work serves a pure academic research purpose for cross-modal learning. We aim to recover the potential statistical correlation between voices and 3D faces based on the physiological and psychological supportive evidence. As is always the case that machine learning and deep learning methods produce inferrence bias and variations, when there comes an uncommon voice and 3D facial geometry correpondence, or the speaker does not use one's natural voice, our model would not perform as good as more representative and typical cases. The same concern is also raised by <a href="https://speech2face.github.io/"> prior work</a> of 2D representation for this line of research.
                 </p>
                 <p style="text-align:left;">
-                    There are arguably implicit factors, such as voices after smoking and drinking might be different. We want to stress that the data of Voxceleb contains speech from interviews, where interviewees usually speak in normal voices. More implicit and subtle factors as temperatures, drug uses, or health conditions might affect voices. Still, such analysis requires controllable conditions and self-disclosure of one's privacy and should be validated from physiological views.
+                    As mentioned in the statement of their ethical considerations, hairstyle and color variations are their concerns; in constrast, our 3D approach leaves out these issues and only focus on the 3D facial geometry analysis. This better studies the statistical correlations between voices and 3D face shapes. From this perspective, our work is a concrete improvement to contain less ethical concerns of inference variations for this line of research.
                 </p>
             </div>
         </div>
@@ -182,6 +208,27 @@
             The website template was borrowed from <a href="http://mgharbi.com/">Michaël Gharbi</a> 
             </div>
         </div>
+
+        
+            
+        <!-- <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Citation
+                </h3>
+                <div class="form-group col-md-10 col-md-offset-1">
+                    <textarea id="bibtex" class="form-control" readonly>
+@article{wu2020scene,
+  title={Scene Completenesss-Aware Lidar Depth Completion for Driving Scenario},
+  author={Wu, Cho-Ying and Neumann, Ulrich},
+  journal={arXiv preprint arXiv:2003.06945},
+  year={2020}
+}
+}</textarea>
+                </div>
+            </div>
+        </div> -->
+
 
     </div>
     
