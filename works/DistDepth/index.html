@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>DistDepth</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <base href="/"> -->
+
+        <!--FACEBOOK-->
+    <meta property="og:image" content="https://choyingw.github.io/works/DistDepth/img/teaser.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="682">
+    <meta property="og:image:height" content="682">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://choyingw.github.io/works/DistDepth/index.html"/>
+    <meta property="og:title" content="DistDepth" />
+    <meta property="og:description" content="DistDepth" />
+
+
+
+<!--     <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
+  <!-- <link rel="icon" type="image/png" href="img/seal_icon.png"> -->
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
+    <link rel="stylesheet" href="css/app.css">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
+    
+    <script src="js/app.js"></script>
+</head>
+
+<body>
+    <div class="container" id="main">
+        <div class="row">
+            <h2 class="col-md-12 text-center">
+                Toward Practical Monocular Indoor Depth Estimation</br> 
+                <small>
+                    CVPR 2022
+                </small>
+            </h2>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="list-inline">
+                    <li>
+                        <a href="https://choyingw.github.io/">
+                          Cho-Ying Wu
+                        </a>
+                        </br>USC
+                    </li>
+                    <li>
+                        <a href="https://scholar.harvard.edu/jwang/home">
+                            Jialiang Wang
+                        </a>
+                        </br>Meta Reality Labs
+                    </li>
+                    <li>
+                        <a href="">
+                            Michael Hall
+                        </a>
+                        </br>Meta Reality Labs
+                    </li>
+                    <li>
+                        <a href="https://cgit.usc.edu/contact/ulrich-neumann/">
+                            Ulrich Neumann
+                        </a>
+                        </br>USC
+                    </li>
+                    <li>
+                        <a href="https://shuochsu.github.io/">
+                            Shuochen Su
+                        </a>
+                        </br>Meta Reality Labs
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="row">
+                <div class="col-md-4 col-md-offset-4 text-center">
+                    <ul class="nav nav-pills nav-justified">
+                        <li>
+                            <a href="https://arxiv.org/abs/2112.02306">
+                            <image src="img/paper.png" height="60px">
+                                <h4><strong>Paper</strong></h4>
+                            </a>
+                        </li>
+                        <!-- <li>
+                            <a href="">
+                            <image src="img/github_pad.png" height="60px">
+                                <h4><strong>Code and Data (Soon!)</strong></h4>
+                            </a>
+                        </li> -->
+                    </ul>
+                </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Abstract
+                </h3>
+                <p class="text-justify">
+                    The majority of prior monocular depth estimation methods without groundtruth depth guidance focus on driving scenarios. We show that such methods generalize poorly to unseen complex indoor scenes, where objects are cluttered and arbitrarily arranged in the near field. To obtain more robustness, we propose a structure distillation approach to learn knacks from an off-the-shelf relative depth estimator that produces structured but metric-agnostic depth. By combining structure distillation with a branch that learns metrics from left-right consistency, we attain structured and metric depth for generic indoor scenes and make inferences in real-time. To facilitate learning and evaluation, we collect SimSIN, a dataset from simulation with thousands of environments, and UniSIN, a dataset that contains about 500 real scan sequences of generic indoor environments. We experiment in both sim-to-real and real-to-real settings, and show improvements, as well as in downstream applications using our depth maps. This work provides a full study, covering methods, data, and applications aspects. 
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Advantage
+                </h3>
+                <image src="img/teaser.png" class="img-responsive" alt="overview"><br>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Depth Comparison 
+                </h3>
+                <p style="text-align:center;">
+                    <image src="img/prior_work.png" height="50px" class="img-responsive">
+                </p>
+                <br><br>
+            </div>
+        </div>
+            
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Point cloud Comparison  
+                </h3>
+                <p style="text-align:center;">
+                    <image src="img/hypersim_supp_all_A.png" class="img-responsive" alt="scales">
+                </p>
+                <p style="text-align:center;">
+                    <image src="img/hypersim_supp_all_B.png" class="img-responsive" alt="scales">
+                </p>
+                <p style="text-align:center;">
+                    <image src="img/hypersim_supp_all_C.png" class="img-responsive" alt="scales">
+                </p>
+                <p style="text-align:center;">
+                    <image src="img/hypersim_supp_all_D.png" class="img-responsive" alt="scales">
+                </p>
+                <br><br>
+            </div>
+        </div> 
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <p style="text-align:center;">
+                    <image src="img/ar.gif" class="img-responsive" alt="scales">
+                </p>
+                <p style="text-align:center;">
+                    <image src="img/pc.gif" class="img-responsive" alt="scales">
+                </p>
+                <br><br>
+            </div>
+        </div> 
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+            The website template was borrowed from <a href="http://mgharbi.com/">Michaël Gharbi</a> 
+            </div>
+        </div>
+
+    </div>
+    
+</body>
+</html>
