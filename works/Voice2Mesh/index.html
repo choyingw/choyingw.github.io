@@ -111,11 +111,14 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h3>
-                    Abstract
+                    Introduction
                 </h3>
                 <image src="img/overall_purpose.png" class="img-responsive" alt="overview"><br>
                 <p class="text-justify">
-                    This work digs into a root question in human perception: can face geometry be gleaned from one's voices? Previous works that study this question only adopt developments in image synthesis and convert voices into face images to show correlations, but working on the image domain unavoidably involves predicting attributes that voices cannot hint, including facial textures, hairstyles, and backgrounds. We instead investigate the ability to reconstruct 3D faces to concentrate on only geometry, which is much more physiologically grounded. We propose our analysis framework, Cross-Modal Perceptionist, under both supervised and unsupervised learning. First, we construct a dataset, Voxceleb-3D, which extends Voxceleb and includes paired voices and face meshes, making supervised learning possible. Second, we use a knowledge distillation mechanism to study whether face geometry can still be gleaned from voices without paired voices and 3D face data under limited availability of 3D face scans. We break down the core question into four parts and perform visual and numerical analyses as responses to the core question. Our findings echo those in physiology and neuroscience about the correlation between voices and facial structures. The work provides future human-centric cross-modal learning with more tangible and explainable foundations.    
+                    This work digs into a root question in human perception: <b>can face geometry be gleaned from one's voices?</b> 
+                    
+                    <p>Previous works that study this question only operate on image representation, but inevitably include irrelevant factors, such as hair, cosmetics, and background, which can be changed arbitrarily with the same human voice. Further, correlation between skin color and ethnicity are controversial (See feature visualization from <a href="https://speech2face.github.io/supplemental/index.html#figA">Speech2Face</a>). To clearly study the correlation between voice and geometry, we instead work on 3D, use <b>mesh representation</b>, and focus on geometry only.</p> 
+                    <p>We propose two framework to validate the correlation: a supervised method and an unsupervised method. The former is used when pairs of voice and 3D face data exist. The latter is used when we lack such datasets or have low fidelity in them.</p>
                 </p>
             </div>
         </div>
@@ -131,44 +134,105 @@
                 <p style="text-align:center;">
                     <image src="img/supervised.png" height="50px" class="img-responsive">
                 </p>
+                <h3>
+                    Voxceleb-3D
+                </h3>
+                <p class="text-justify">
+                    We propose a dataset, Voxceleb-3D. We fetch voice banks in Voxceleb and face images from VGGFace for celebrities appear in both datsets. 
+                    <p>To obtain 3D mesh, we first extract facial landmarks for images. Then we optimize 3DMM parameters to fit in landmarks. 3DMM is a parametric method to reconstruct meshes by a few controllable parameters. In our work, we use popular BFM faces and use a 62-dim vector to control the face reconstruction. To this end, we obtain paired voice and 3D face data.</p>
+                    <p>We show fitting in the following figure, top: images from VGGFace; down: meshes overlayed on images.</p>
+                </p>
+                <p style="text-align:center;">
+                    <image src="img/optimization_synthesis.png" height="50px" class="img-responsive">
+                </p>
                 <br><br><br><br><br>
                 <h3>
                     Unsupervised setting 
                 </h3>
                 <p class="text-justify">
-                    The unsupervised framework is shown as follows. This setting serves a more realistic purpose that it's very hard to obtain large-scale paired voice and 3D face data. The unsupervised framework utilizes the knowledge distillation (KD) to distill knacks from an image-to-3D-face expert to facilitate the unsupervised end-to-end training.  
+                    The unsupervised framework is shown as follows. This setting serves a more realistic purpose that it's very hard to obtain large-scale paired voice and 3D face data. The unsupervised framework utilizes the knowledge distillation (KD) to distill knacks from an image-to-3D-face expert to facilitate the unsupervised end-to-end training. Images here is a <b>bridge representation</b> that connects voice and 3D mesh. 
                 </p>
                 <p style="text-align:center;">
                     <image src="img/unsupervised.png" height="50px" class="img-responsive">
                 </p>
             </div>
         </div>
-            
+
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h3>
-                    Result 1: different shape face meshes inferred from voices. The upper images are for reference. 
+                    Result:
+                </h3>
+                <h3>
+                    Q1: Is it feasible to predict visually reasonable face meshes from voice?
                 </h3>
                 <p style="text-align:center;">
+                    <p style="font-size:18px;text-align:center;">Results from supervised learning</p>
+                     
                     <image src="img/supervised_gt.png" class="img-responsive" alt="scales">
                 </p>
+                <br><br><br>
+                <p style="text-align:center;">
+                    <p style="font-size:18px;text-align:center;">Results from unsupervised learning</p>
+                    <image src="img/many_results_cap.png" class="img-responsive" alt="scales">
+                </p>
                 <br><br>
                 <h3>
-                    Result 2: comparison of recovered 3D face meshes with the baseline. 
+                    Q2: How stable is the mesh prediction from different utterances of the same person?
                 </h3>
                 <p style="text-align:center;">
+                    <p style="font-size:18px;text-align:center;">Results from supervised learning</p>
+                     
+                    <image src="img/coherence_sup.png" class="img-responsive" alt="scales">
+                </p>
+                <br><br><br>
+                <p style="text-align:center;">
+                    <p style="font-size:18px;text-align:center;">Results from unsupervised learning</p>
+                    <image src="img/coherence_unsup.png" class="img-responsive" alt="scales">
+                </p>
+                <br><br>
+                <h3>
+                    Q3. Compared with face meshes produced by baselines, can the performance from the joint training flow improve? How much? 
+                </h3>
+                <p style="text-align:center;">
+                    We use the baselines: direct cascaded pretrained models of voice-to-img and img-to-mesh.
+                    <image src="img/baseline.png" width=60% class="center" alt="scales">
+                </p>
+                <br><br>
+                <p style="text-align:center;">
+                    <p style="font-size:18px;text-align:center;">Results from supervised learning</p>
+                     
                     <image src="img/supervised_comp.png" class="img-responsive" alt="scales">
                 </p>
+                <br><br><br>
+                <p style="text-align:center;">
+                    <p style="font-size:18px;text-align:center;">Results from unsupervised learning</p>
+                    <image src="img/unsupervised_comp.png" class="img-responsive" alt="scales">
+                </p>
+                <p style="text-align:center;">
+                    <p style="font-size:18px;text-align:center;">Quantitative comparison</p>
+                    <image src="img/quantitative_comp.png" width=80% class="center" alt="scales">
+                </p>
                 <br><br>
                 <h3>
-                    Result 3: consistency for the same identity using different utterances.  
+                    Q4. What is the major improvement that voice information can bring in the joint training flow?
+                </h3>
+                <p style="text-align:left;">
+                    From the quantitative comparison, we find the major improvement comes from the ear-to-ear ratio (ER), which corresponds to overall wideness of faces. <b>Therefore, the relative face wideness or thinness is the property that voice can indicate.</b> This matches our experience that when someone starts to talk, even before seeing one's face, we can roughly imagine whether one's face is wider or thinner, but we cannot imagine fine-grained details, such as wrinkles or bumps.  
+                </p>
+                <br><br>
+                <h3>
+                    Subjective comparison
                 </h3>
                 <p style="text-align:center;">
-                    <image src="img/coherence.png" class="img-responsive" alt="scales">
+                    <image src="img/subjective_comp.png" width=80% class="center" alt="scales">
                 </p>
+                <br><br>
             </div>
-        </div>    
+        </div>
 
+
+            
         <br><br><br>
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
